@@ -98,7 +98,7 @@ function createHTMLTable(array){
     tbody.appendChild(tr); // add the row into the the table's body
   }
   table.appendChild(tbody); // add the body into the table
-  document.body.appendChild(table); // add the table into the HTML document
+  return table; // add the table into the HTML document
 }
 
 // 1.4 : see line 22
