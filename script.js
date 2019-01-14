@@ -58,6 +58,7 @@ function createHTMLTable(array){
   // table's first row
   let tr = document.createElement("tr");
 
+  // fill the table's header
   while (i < array[0].length) {
     currentElementI = array[0][i];
     i++;
@@ -67,31 +68,37 @@ function createHTMLTable(array){
     th.innerHTML = currentElementI;
     tr.appendChild(th);
   }
-  thead.appendChild(tr);
-  table.appendChild(thead);
+  thead.appendChild(tr); // add the row into the header
+  table.appendChild(thead); // add the header into the table
+
 
   // table's body
   let tbody = document.createElement("tbody");
   i = 1;
+
+  // fill the table's body
   while (i < array.length) {
     currentElementI = array[i];
     i++;
 
-    // elements of the table's body
+    // rows of the table's body
     let tr = document.createElement("tr");
     j = 0;
+
+    // fill every row of the table body
     while (j < currentElementI.length){
       currentElementJ = currentElementI[j];
       j++;
 
+      // elements of the table body
       let td = document.createElement("td");
       td.innerHTML = currentElementJ;
       tr.appendChild(td);
     }
-    tbody.appendChild(tr);
+    tbody.appendChild(tr); // add the row into the the table's body
   }
-  table.appendChild(tbody);
-  document.body.appendChild(table);
+  table.appendChild(tbody); // add the body into the table
+  document.body.appendChild(table); // add the table into the HTML document
 }
 
 // 1.4 : see line 22
@@ -112,19 +119,22 @@ let substancesInformations = [
 // 2.2
 // function that returns an array that contains the name of the substances which the boiling temperature in °C is less than the number passed in parameter
 function returnSubtances(array, temperature){
-  let substancesArray = []
+  // array that will contains the name of the substances which the boiling temperature in °C is less than the number passed in parameter
+  let substancesArray = [];
 
-  let i = 1;
-  let currentElement;
+  let i = 1; // intermediate variable for the enumeration
+  let currentElement; // intermediate variable for the sequential treatment
 
+  // fill the substancesArray with the good substances
   while (i < array.length) {
     currentElement = array[i];
     i++;
 
-    if (currentElement[2] < temperature) {
-      substancesArray.push(currentElement[0]);
+    if (currentElement[2] < temperature) { // if the boiling temperature is less than the temperature passed in parameter
+      substancesArray.push(currentElement[0]); // add the name of the substances in the substancesArray
     }
   }
 
+  // return the substancesArray
   return substancesArray;
 }
